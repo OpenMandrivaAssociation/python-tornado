@@ -11,6 +11,7 @@ URL:            http://www.tornadoweb.org
 Source0:        http://github.com/downloads/facebook/tornado/%{oname}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 BuildArch:      noarch
+%py_requires
 Requires:       python-pycurl
 Requires:       python-simplejson
 
