@@ -1,7 +1,7 @@
 %define oname tornado
 
 Name:           python-%{oname}
-Version:        1.0.1
+Version:        1.1
 Release:        %mkrel 1
 Summary:        Scalable, non-blocking web server and tools
 
