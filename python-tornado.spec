@@ -2,7 +2,7 @@
 
 Name:           python-%{oname}
 Version:        1.1
-Release:        %mkrel 1
+Release:        %mkrel 2
 Summary:        Scalable, non-blocking web server and tools
 
 Group:          Development/Python
