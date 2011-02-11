@@ -1,8 +1,8 @@
 %define oname tornado
 
 Name:           python-%{oname}
-Version:        1.1
-Release:        %mkrel 2
+Version:        1.1.1
+Release:        %mkrel 1
 Summary:        Scalable, non-blocking web server and tools
 
 Group:          Development/Python
@@ -11,7 +11,8 @@ URL:            http://www.tornadoweb.org
 Source0:        http://github.com/downloads/facebook/tornado/%{oname}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 BuildArch:      noarch
-%py_requires -d
+BuildRequires:	python-devel
+Requires:	python
 Requires:       python-pycurl
 Requires:       python-simplejson
 
@@ -69,4 +70,3 @@ rm -rf %{buildroot}
 %files doc
 %defattr(-,root,root,-)
 %doc demos
-
