@@ -1,7 +1,7 @@
 %define oname tornado
 
 Name:           python-%{oname}
-Version:        1.2.1
+Version:        2.0
 Release:        %mkrel 1
 Summary:        Scalable, non-blocking web server and tools
 
@@ -9,7 +9,6 @@ Group:          Development/Python
 License:        ASL 2.0
 URL:            http://www.tornadoweb.org
 Source0:        http://github.com/downloads/facebook/tornado/%{oname}-%{version}.tar.gz
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 BuildArch:      noarch
 BuildRequires:	python-devel
 Requires:	python
