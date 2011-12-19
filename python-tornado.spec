@@ -2,7 +2,7 @@
 
 Name:           python-%{oname}
 Version:        2.1.1
-Release:        %mkrel 1
+Release:        %mkrel 2
 Summary:        Scalable, non-blocking web server and tools
 
 Group:          Development/Python
@@ -36,13 +36,6 @@ and tools. This package contains some example applications.
 
 %prep 
 %setup -q -n %{oname}-%{version}
-
-# remove shebang from files
-for File in `find %{oname} -name "*py"`; do
-    %{__sed} -i.orig -e 1d ${File}
-    touch -r ${File}.orig ${File}
-    %{__rm} ${File}.orig
-done
 
 # spurious permission fix
 find demos/ -name "*.py" -exec chmod -x {} \;
