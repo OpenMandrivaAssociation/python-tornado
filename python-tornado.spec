@@ -57,7 +57,7 @@ PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
 %defattr(-,root,root,-) 
 %doc README
 %{python_sitelib}/%{oname}/
-%{python_sitelib}/%{oname}-%{version}-py%{pyver}.egg-info/
+%{python_sitelib}/%{oname}-%{version}-*.egg-info/
 
 %files doc
 %defattr(-,root,root,-)
