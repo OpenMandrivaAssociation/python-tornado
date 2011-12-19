@@ -1,7 +1,7 @@
 %define oname tornado
 
 Name:           python-%{oname}
-Version:        2.0
+Version:        2.1.1
 Release:        %mkrel 1
 Summary:        Scalable, non-blocking web server and tools
 
@@ -11,7 +11,7 @@ URL:            http://www.tornadoweb.org
 Source0:        http://github.com/downloads/facebook/tornado/%{oname}-%{version}.tar.gz
 BuildArch:      noarch
 BuildRequires:	python-devel
-Requires:	python
+Requires:		python
 Requires:       python-pycurl
 Requires:       python-simplejson
 
@@ -51,17 +51,17 @@ find demos/ -name "*.py" -exec chmod -x {} \;
 rm -rf demos/facebook/static/facebook.js
 
 %build
-python setup.py build
+%__python setup.py build
 
 %install
-rm -rf %{buildroot}
-python setup.py install --root=%{buildroot}
+%__rm -rf %{buildroot}
+PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
 
 %clean
-rm -rf %{buildroot}
+%__rm -rf %{buildroot}
 
 %files
-%defattr(-,root,root,-)
+%defattr(-,root,root,-) 
 %doc README
 %{python_sitelib}/%{oname}/
 %{python_sitelib}/%{oname}-%{version}-py%{pyver}.egg-info/
