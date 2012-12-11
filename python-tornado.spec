@@ -1,17 +1,16 @@
 %define oname tornado
 
 Name:           python-%{oname}
-Version:        2.1.1
-Release:        %mkrel 2
+Version:        2.4
+Release:        1
 Summary:        Scalable, non-blocking web server and tools
-
 Group:          Development/Python
 License:        ASL 2.0
 URL:            http://www.tornadoweb.org
 Source0:        http://github.com/downloads/facebook/tornado/%{oname}-%{version}.tar.gz
 BuildArch:      noarch
 BuildRequires:	python-devel
-Requires:		python
+Requires:	python
 Requires:       python-pycurl
 Requires:       python-simplejson
 
@@ -37,6 +36,13 @@ and tools. This package contains some example applications.
 %prep 
 %setup -q -n %{oname}-%{version}
 
+# remove shebang from files
+for File in `find %{oname} -name "*py"`; do
+    %{__sed} -i.orig -e 1d ${File}
+    touch -r ${File}.orig ${File}
+    %{__rm} ${File}.orig
+done
+
 # spurious permission fix
 find demos/ -name "*.py" -exec chmod -x {} \;
 
@@ -44,21 +50,48 @@ find demos/ -name "*.py" -exec chmod -x {} \;
 rm -rf demos/facebook/static/facebook.js
 
 %build
-%__python setup.py build
+python setup.py build
 
 %install
-%__rm -rf %{buildroot}
-PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
-
-%clean
-%__rm -rf %{buildroot}
+python setup.py install --root=%{buildroot}
 
 %files
-%defattr(-,root,root,-) 
 %doc README
 %{python_sitelib}/%{oname}/
-%{python_sitelib}/%{oname}-%{version}-*.egg-info/
+%{python_sitelib}/%{oname}-%{version}-py%{py_ver}.egg-info/
 
 %files doc
-%defattr(-,root,root,-)
 %doc demos
+
+
+%changelog
+* Fri Jun 24 2011 Jani Välimaa <wally@mandriva.org> 2.0-1mdv2011.0
++ Revision: 686971
+- new version 2.0
+
+* Fri Mar 04 2011 Jani Välimaa <wally@mandriva.org> 1.2.1-1
++ Revision: 641623
+- new version 1.2.1
+
+* Mon Feb 21 2011 Jani Välimaa <wally@mandriva.org> 1.2-1
++ Revision: 639184
+- new version 1.2
+
+* Fri Feb 11 2011 Jani Välimaa <wally@mandriva.org> 1.1.1-1
++ Revision: 637291
+- new version 1.1.1
+- drop obsolete py_requires macro
+
+* Sat Oct 30 2010 Michael Scherer <misc@mandriva.org> 1.1-2mdv2011.0
++ Revision: 590591
+- rebuild for python 2.7
+
+* Wed Sep 08 2010 Jani Välimaa <wally@mandriva.org> 1.1-1mdv2011.0
++ Revision: 576796
+- new version 1.1
+
+* Wed Aug 25 2010 Jani Välimaa <wally@mandriva.org> 1.0.1-1mdv2011.0
++ Revision: 573152
+- add python requires
+- initial mdv release based on Fedora .spec
+
