@@ -1,13 +1,13 @@
 %define oname tornado
 
 Name:           python-%{oname}
-Version:        2.4
+Version:        3.1
 Release:        1
 Summary:        Scalable, non-blocking web server and tools
 Group:          Development/Python
 License:        ASL 2.0
 URL:            http://www.tornadoweb.org
-Source0:        http://github.com/downloads/facebook/tornado/%{oname}-%{version}.tar.gz
+Source0:        https://pypi.python.org/packages/source/t/tornado/tornado-%{version}.tar.gz
 BuildArch:      noarch
 BuildRequires:	python-devel
 Requires:	python
@@ -57,8 +57,8 @@ python setup.py install --root=%{buildroot}
 
 %files
 %doc README
-%{python_sitelib}/%{oname}/
-%{python_sitelib}/%{oname}-%{version}-py%{py_ver}.egg-info/
+%{py_puresitedir}/%{oname}/
+%{py_puresitedir}/%{oname}-%{version}-py%{py_ver}.egg-info/
 
 %files doc
 %doc demos
@@ -94,4 +94,5 @@ python setup.py install --root=%{buildroot}
 + Revision: 573152
 - add python requires
 - initial mdv release based on Fedora .spec
+
 

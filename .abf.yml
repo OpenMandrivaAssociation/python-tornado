@@ -1,2 +1,4 @@
+removed_sources:
+  tornado-2.4.tar.gz: 36ca4cd4b15e422a92586389f88762b39b8ac12b
 sources:
-  "tornado-2.4.tar.gz": 36ca4cd4b15e422a92586389f88762b39b8ac12b
+  tornado-3.1.tar.gz: 7d0db7bcf23c93b7308504ef0efaa17d91f9166a
