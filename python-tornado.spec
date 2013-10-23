@@ -56,7 +56,7 @@ python setup.py build
 python setup.py install --root=%{buildroot}
 
 %files
-%doc README
+%doc 
 %{py_puresitedir}/%{oname}/
 %{py_puresitedir}/%{oname}-%{version}-py%{py_ver}.egg-info/
 
