@@ -2,7 +2,7 @@
 
 Name:           python-%{oname}
 Version:        3.1
-Release:        1
+Release:        2
 Summary:        Scalable, non-blocking web server and tools
 Group:          Development/Python
 License:        ASL 2.0
@@ -13,6 +13,9 @@ BuildRequires:	python-devel
 Requires:	python
 Requires:       python-pycurl
 Requires:       python-simplejson
+# no matter what cannot remove dependency on it, and then does not
+# generate the provides...
+Provides:	pythonegg(tornado)
 
 %description
 Tornado is an open source version of the scalable, non-blocking web server and
