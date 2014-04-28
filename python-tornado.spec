@@ -8,6 +8,7 @@ Group:          Development/Python
 License:        ASL 2.0
 URL:            http://www.tornadoweb.org
 Source0:        https://pypi.python.org/packages/source/t/tornado/tornado-%{version}.tar.gz
+Source1:	%{name}.rpmlintrc
 BuildArch:      noarch
 BuildRequires:	python-devel
 Requires:	python
