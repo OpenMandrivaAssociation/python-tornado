@@ -65,6 +65,10 @@ python setup.py install --root=%{buildroot}
 %doc 
 %{py_puresitedir}/%{oname}/
 %{py_puresitedir}/%{oname}-%{version}-py%{py_ver}.egg-info/
+%{_libdir}/debug/.build-id/37/550b52c9128000a6ac52d6de4c8896ce30b6de
+%{_libdir}/debug/.build-id/37/550b52c9128000a6ac52d6de4c8896ce30b6de.debug
+%{_libdir}/debug%{py_puresitedir}/tornado/speedups.so.debug
+/usr/src/debug/tornado-3.2/tornado/speedups.c
 
 %files doc
 %doc demos
