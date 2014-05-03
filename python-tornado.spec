@@ -1,9 +1,10 @@
 %define oname tornado
 
 Name:           python-%{oname}
-Version:        3.1
-Release:        2
+Version:        3.2
+Release:        1
 Summary:        Scalable, non-blocking web server and tools
+
 Group:          Development/Python
 License:        ASL 2.0
 URL:            http://www.tornadoweb.org
@@ -30,6 +31,7 @@ services.
 
 %package doc
 Summary:        Examples for python-tornado
+
 Group:          Development/Python
 Requires:       %{name} = %{version}-%{release}
 
@@ -44,7 +46,7 @@ and tools. This package contains some example applications.
 for File in `find %{oname} -name "*py"`; do
     %{__sed} -i.orig -e 1d ${File}
     touch -r ${File}.orig ${File}
-    %{__rm} ${File}.orig
+    rm ${File}.orig
 done
 
 # spurious permission fix
@@ -67,36 +69,5 @@ python setup.py install --root=%{buildroot}
 %files doc
 %doc demos
 
-
-%changelog
-* Fri Jun 24 2011 Jani Välimaa <wally@mandriva.org> 2.0-1mdv2011.0
-+ Revision: 686971
-- new version 2.0
-
-* Fri Mar 04 2011 Jani Välimaa <wally@mandriva.org> 1.2.1-1
-+ Revision: 641623
-- new version 1.2.1
-
-* Mon Feb 21 2011 Jani Välimaa <wally@mandriva.org> 1.2-1
-+ Revision: 639184
-- new version 1.2
-
-* Fri Feb 11 2011 Jani Välimaa <wally@mandriva.org> 1.1.1-1
-+ Revision: 637291
-- new version 1.1.1
-- drop obsolete py_requires macro
-
-* Sat Oct 30 2010 Michael Scherer <misc@mandriva.org> 1.1-2mdv2011.0
-+ Revision: 590591
-- rebuild for python 2.7
-
-* Wed Sep 08 2010 Jani Välimaa <wally@mandriva.org> 1.1-1mdv2011.0
-+ Revision: 576796
-- new version 1.1
-
-* Wed Aug 25 2010 Jani Välimaa <wally@mandriva.org> 1.0.1-1mdv2011.0
-+ Revision: 573152
-- add python requires
-- initial mdv release based on Fedora .spec
 
 
