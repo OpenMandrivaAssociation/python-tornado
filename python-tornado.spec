@@ -1,23 +1,19 @@
 %define oname tornado
+%define debug_package %{nil}
 
 Name:           python-%{oname}
 Version:        3.2
 Release:        1
 Summary:        Scalable, non-blocking web server and tools
-
 Group:          Development/Python
 License:        ASL 2.0
 URL:            http://www.tornadoweb.org
 Source0:        https://pypi.python.org/packages/source/t/tornado/tornado-%{version}.tar.gz
-Source1:	%{name}.rpmlintrc
-BuildArch:      noarch
+Source1:        %{name}.rpmlintrc
 BuildRequires:	python-devel
-Requires:	python
+Requires:	    python
 Requires:       python-pycurl
 Requires:       python-simplejson
-# no matter what cannot remove dependency on it, and then does not
-# generate the provides...
-Provides:	pythonegg(tornado)
 
 %description
 Tornado is an open source version of the scalable, non-blocking web server and
@@ -31,7 +27,6 @@ services.
 
 %package doc
 Summary:        Examples for python-tornado
-
 Group:          Development/Python
 Requires:       %{name} = %{version}-%{release}
 
@@ -63,15 +58,9 @@ python setup.py install --root=%{buildroot}
 
 %files
 %doc 
-%{py_puresitedir}/%{oname}/
-%{py_puresitedir}/%{oname}-%{version}-py%{py_ver}.egg-info/
-%{_libdir}/debug/.build-id/37/550b52c9128000a6ac52d6de4c8896ce30b6de
-%{_libdir}/debug/.build-id/37/550b52c9128000a6ac52d6de4c8896ce30b6de.debug
-%{_libdir}/debug%{py_puresitedir}/tornado/speedups.so.debug
-/usr/src/debug/tornado-3.2/tornado/speedups.c
+%{py_platsitedir}/%{oname}/
+%{py_platsitedir}/%{oname}-%{version}-py%{py_ver}.egg-info/
 
 %files doc
 %doc demos
-
-
 
