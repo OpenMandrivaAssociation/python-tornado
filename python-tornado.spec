@@ -2,8 +2,8 @@
 %define debug_package %{nil}
 
 Name:           python-%{oname}
-Version:        3.2
-Release:        3
+Version:        3.2.2
+Release:        1
 Summary:        Scalable, non-blocking web server and tools
 Group:          Development/Python
 License:        ASL 2.0
@@ -63,4 +63,3 @@ python setup.py install --root=%{buildroot}
 
 %files doc
 %doc demos
-
