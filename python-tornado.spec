@@ -3,7 +3,7 @@
 
 Name:           python-%{oname}
 Version:        3.2.2
-Release:        2
+Release:        3
 Summary:        Scalable, non-blocking web server and tools
 Group:          Development/Python
 License:        ASL 2.0
@@ -38,11 +38,7 @@ and tools. This package contains some example applications.
 %setup -q -n %{oname}-%{version}
 
 # remove shebang from files
-for File in `find %{oname} -name "*py"`; do
-    %{__sed} -i.orig -e 1d ${File}
-    touch -r ${File}.orig ${File}
-    rm ${File}.orig
-done
+%{__sed} -i.orig -e '/^#!\//, 1d' *py tornado/*.py tornado/*/*.py
 
 # spurious permission fix
 find demos/ -name "*.py" -exec chmod -x {} \;
