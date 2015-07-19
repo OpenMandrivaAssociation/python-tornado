@@ -3,7 +3,7 @@
 
 Name:           python-%{oname}
 Version:        3.2.2
-Release:        3
+Release:        4
 Summary:        Scalable, non-blocking web server and tools
 Group:          Development/Python
 License:        ASL 2.0
