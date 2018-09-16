@@ -13,7 +13,6 @@ Source1:        %{name}.rpmlintrc
 BuildRequires:	python-devel
 Requires:	    python
 Requires:       python-pycurl
-Requires:       python-simplejson
 
 %description
 Tornado is an open source version of the scalable, non-blocking web server and
