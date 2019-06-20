@@ -2,7 +2,7 @@
 %define debug_package %{nil}
 
 Name:           python-%{oname}
-Version:        5.1
+Version:	6.0.2
 Release:        2
 Summary:        Scalable, non-blocking web server and tools
 Group:          Development/Python
