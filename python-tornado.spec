@@ -2,13 +2,13 @@
 %define debug_package %{nil}
 
 Name:           python-%{oname}
-Version:	6.0.2
-Release:        2
+Version:	6.0.3
+Release:	1
 Summary:        Scalable, non-blocking web server and tools
 Group:          Development/Python
 License:        ASL 2.0
 URL:            http://www.tornadoweb.org
-Source0:        https://pypi.python.org/packages/source/t/tornado/tornado-%{version}.tar.gz
+Source0:	https://files.pythonhosted.org/packages/30/78/2d2823598496127b21423baffaa186b668f73cd91887fcef78b6eade136b/tornado-6.0.3.tar.gz
 Source1:        %{name}.rpmlintrc
 BuildRequires:	python-devel
 Requires:	    python
