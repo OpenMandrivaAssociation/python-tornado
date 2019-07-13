@@ -54,7 +54,7 @@ python setup.py install --root=%{buildroot}
 %files
 %doc 
 %{py_platsitedir}/%{oname}/
-%{py_platsitedir}/%{oname}-%{version}-py%{py_ver}.egg-info/
+%{py_platsitedir}/%{oname}-%{version}-py%{py_ver}.egg-info
 
 %files doc
 %doc demos
