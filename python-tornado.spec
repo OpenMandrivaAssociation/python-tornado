@@ -1,4 +1,5 @@
 %define oname tornado
+%define  _empty_manifest_terminate_build 0
 
 Name:           python-%{oname}
 Version:	6.1
