@@ -1,9 +1,8 @@
 %define oname tornado
-%define  _empty_manifest_terminate_build 0
 
 Name:           python-%{oname}
 Version:	6.1
-Release:	1
+Release:	2
 Summary:        Scalable, non-blocking web server and tools
 Group:          Development/Python
 License:        ASL 2.0
@@ -11,6 +10,7 @@ URL:            http://www.tornadoweb.org
 Source0:	https://files.pythonhosted.org/packages/cf/44/cc9590db23758ee7906d40cacff06c02a21c2a6166602e095a56cbf2f6f6/%{oname}-6.1.tar.gz
 Source1:        %{name}.rpmlintrc
 BuildRequires:	python-devel
+BuildRequires:	python-setuptools
 Requires:	python
 Requires:       python-pycurl
 
