@@ -2,7 +2,7 @@
 
 Name:           python-%{oname}
 Version:	6.1
-Release:	2
+Release:	3
 Summary:        Scalable, non-blocking web server and tools
 Group:          Development/Python
 License:        ASL 2.0
