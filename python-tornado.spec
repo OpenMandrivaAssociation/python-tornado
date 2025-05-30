@@ -7,7 +7,7 @@
 %bcond_with docs
 
 Name:		python-tornado
-Version:	6.4.2
+Version:	6.5.1
 Release:	1
 Summary:	Scalable, non-blocking web server and tools
 Group:		Development/Python
