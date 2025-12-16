@@ -7,7 +7,7 @@
 %bcond_with docs
 
 Name:		python-tornado
-Version:	6.5.1
+Version:	6.5.4
 Release:	1
 Summary:	Scalable, non-blocking web server and tools
 Group:		Development/Python
@@ -18,8 +18,8 @@ Source1:	%{name}.rpmlintrc
 BuildSystem: python
 
 BuildRequires:	gcc-c++
-BuildRequires:	python
-BuildRequires:	pkgconfig(python3)
+BuildRequires:	pkgconfig
+BuildRequires:	pkgconfig(python)
 BuildRequires:	python%{pyver}dist(pip)
 BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:	python%{pyver}dist(pycurl)
@@ -78,7 +78,7 @@ sphinx-build -q -E -n -W -b html . build/html
 %endif
 
 %install
-%py3_install
+%py_install
 
 %if %{with test}
 %check
@@ -97,8 +97,8 @@ export TRAVIS=true
 %endif
 
 %files
-%{py_platsitedir}/%{module}/
-%{py_platsitedir}/%{module}-%{version}.dist-info
+%{python_sitearch}/%{module}
+%{python_sitearch}/%{module}-%{version}.dist-info
 %doc README.rst
 %license LICENSE
 
