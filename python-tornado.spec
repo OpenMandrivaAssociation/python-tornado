@@ -1,19 +1,19 @@
 %define module tornado
 # disable tests on abf, some require remote access
 # tests complete in local build
-%bcond_with test
+%bcond test 0
 # disabled doc generation due to building issue
 # left it behind the conditional for a revisit
-%bcond_with docs
+%bcond docs 0
 
 Name:		python-tornado
-Version:	6.5.4
+Version:	6.5.5
 Release:	1
 Summary:	Scalable, non-blocking web server and tools
 Group:		Development/Python
 License:	Apache-2.0
 URL:		https://www.tornadoweb.org
-Source0:	https://files.pythonhosted.org/packages/source/t/tornado/tornado-%{version}.tar.gz
+Source0:	https://files.pythonhosted.org/packages/source/t/%{module}/%{module}-%{version}.tar.gz#/%{name}-%{version}.tar.gz
 Source1:	%{name}.rpmlintrc
 BuildSystem: python
 
@@ -65,20 +65,18 @@ Tornado is an open source version of the scalable, non-blocking web server and
 and tools. This package contains some example applications.
 %endif
 
-%prep 
-%autosetup -n %{module}-%{version} -p1
+%prep -a
 # Remove bundled egg-info
 rm -rf %{module}.egg-info
 
-%build
-%py_build
+%build -p
+export LDFLAGS="%{ldflags} -lpython%{pyver}"
+
+%build -a
 %if %{with docs}
 cd docs
 sphinx-build -q -E -n -W -b html . build/html
 %endif
-
-%install
-%py_install
 
 %if %{with test}
 %check
@@ -91,9 +89,7 @@ export TRAVIS=true
 %else
 	export ASYNC_TEST_TIMEOUT=30
 %endif
-
 %{__python} -m tornado.test.runtests --verbose --fail-if-logs=false
-
 %endif
 
 %files
