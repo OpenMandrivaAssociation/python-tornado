@@ -1,2 +1,4 @@
-# teplates threated as headers
-addFilter("devel-file-in-non-devel-package")
+# result of running fdupes
+addFilter("W: cross-directory-hard-link")
+# this file is part of a demo
+addFilter("E: zero-length /usr/share/doc/python-tornado/demos/facebook/static/facebook.js")
