@@ -5,7 +5,7 @@
 %bcond tests 0
 
 Name:		python-tornado
-Version:	6.5.6
+Version:	6.5.7
 Release:	1
 Summary:	Scalable, non-blocking web server and tools
 Group:		Development/Python
