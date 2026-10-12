@@ -6,7 +6,7 @@
 
 Name:		python-tornado
 Version:	6.5.7
-Release:	1
+Release:	2
 Summary:	Scalable, non-blocking web server and tools
 Group:		Development/Python
 License:	Apache-2.0
